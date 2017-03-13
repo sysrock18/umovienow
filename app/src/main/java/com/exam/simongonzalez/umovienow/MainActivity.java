@@ -1,11 +1,16 @@
 package com.exam.simongonzalez.umovienow;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.exam.simongonzalez.umovienow.view.CategoriesAdapter;
 import com.exam.simongonzalez.umovienow.view.PopularView;
@@ -50,6 +55,22 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setText(getResources().getString(R.string.popular));
         tabLayout.getTabAt(1).setText(getResources().getString(R.string.top_rated));
         tabLayout.getTabAt(2).setText(getResources().getString(R.string.upcoming));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+
+
+        return true;
     }
 
 
