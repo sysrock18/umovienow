@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava2/2.2.0/3ee0e527143abbe130ddba4c1fa6c4be5d66ed5c/adapter-rxjava2-2.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3ee0e527143abbe130ddba4c1fa6c4be5d66ed5c">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/adapter-rxjava2-2.2.0_39841b7364f03b4b1f22a0361eb9f7b5df169056.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/simongonzalez/.android/build-cache/64c293bd5481fb664d4395a4bc36278c3f12cf21/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -21,12 +30,66 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.0.1/57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb/rxjava-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/rxjava-2.0.1_bcab16ec7cf1d83a17474e2c39b9a41feb3be003.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/okio-1.11.0_89d3608fa7482cdd8f735d0c674c6774304845fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/javax.inject-1_86f3c2c115e2b4619fd65c7a4becdf8e1ae15132.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.2.0/a56f28d5b7fab623c6c1d2afa08dd496d873ac21/logging-interceptor-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a56f28d5b7fab623c6c1d2afa08dd496d873ac21">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/logging-interceptor-3.2.0_181f09ef1f42abf569a728a1db61be102cb641e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/simongonzalez/.android/build-cache/52ab11e4cb4df79850043c9abe2dc06f7b1a5ffe/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
         <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/classes_800aefc0de7447dc5923bea46a593b2215973942.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.2.0/a09926806199499a20b2f5168779499abfa33342/converter-gson-2.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a09926806199499a20b2f5168779499abfa33342">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/converter-gson-2.2.0_5c0204e1752f121a470ad75236ab15d8e5c54bb6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/reactive-streams-1.0.0_5f3f8930e966adf6d939cb6f87f839ed729c2697.jar" />
     </item>
     <item
         is-multidex="false"
@@ -45,6 +108,15 @@
         revision="25.0.2"
         sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
         <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/classes_37b3922d6c91514265510a1d1f093a6ea3a0efa8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.android/build-cache/9450c778d4cf0d70c6688b2a8c6172b33127b797/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/classes_3a64ed1dfab1b4c6d869879ba2104ee46551d10c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -84,6 +156,24 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_721bac04c5c589985b79719b5bacf4093ce20063.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.9/75a739e59d7ede2f7f425f369955bdd1c2ac122b/dagger-2.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="75a739e59d7ede2f7f425f369955bdd1c2ac122b">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/dagger-2.9_d07cce7474d556bea22714b870d8884f32973a1e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/simongonzalez/.android/build-cache/b8c54c85403ff8d258143327ea6b25be4383bdaa/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -111,12 +201,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/gson-2.7_a3d1028e740ceb5e43fe413d967ddad3b2e9572a.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/simongonzalez/.android/build-cache/a49f33a7643d01afe3b61e77c50b50783487917f/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="e51c2f662bb72419632af5192553c37e33890a99">
         <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/classes_b491d6243d7d0af1a381093fa5f41bea64a8c45c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/simongonzalez/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.2.0/41e67dba73c3347e4503761642c39d0e06ca1f2/retrofit-2.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="041e67dba73c3347e4503761642c39d0e06ca1f2">
+        <dex dex="/Users/simongonzalez/workspace/UMovieNow/umovienow/app/build/intermediates/pre-dexed/debug/retrofit-2.2.0_59453f1eab01457232f90ec11a83301c785313c8.jar" />
     </item>
 
 </items>

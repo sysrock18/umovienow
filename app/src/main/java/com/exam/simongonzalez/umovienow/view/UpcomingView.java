@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.exam.simongonzalez.umovienow.R;
 
-public class UpcomingView extends Fragment {
+public class UpcomingView extends Fragment implements IUpcomingView {
 
 
     public UpcomingView() {

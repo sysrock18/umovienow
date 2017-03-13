@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.exam.simongonzalez.umovienow.R;
 
-public class TopRatedView extends Fragment {
+public class TopRatedView extends Fragment implements ITopRatedView {
 
 
     public TopRatedView() {
