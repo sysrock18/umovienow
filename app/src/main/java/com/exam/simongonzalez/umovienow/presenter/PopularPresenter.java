@@ -1,20 +1,16 @@
 package com.exam.simongonzalez.umovienow.presenter;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.exam.simongonzalez.umovienow.model.Movie;
+import com.exam.simongonzalez.umovienow.model.MovieData;
 import com.exam.simongonzalez.umovienow.service.IMovieService;
 import com.exam.simongonzalez.umovienow.service.MovieService;
 import com.exam.simongonzalez.umovienow.view.IPopularView;
 
-import java.util.List;
-import javax.inject.Inject;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by simongonzalez on 10/03/17.
@@ -25,7 +21,6 @@ public class PopularPresenter implements IPopularPresenter {
     private static String API_KEY = "367ef3f968fd589d24409b9240735c38";
     IPopularView iPopularView;
     Context context;
-    MovieService movieService;
     IMovieService iMovieService;
 
     public PopularPresenter(IPopularView iPopularView, Context context) {
@@ -34,19 +29,35 @@ public class PopularPresenter implements IPopularPresenter {
     }
 
     @Override
-    public void loadPopularMovies(String page) {
-        iMovieService = MovieService.getMovieApi().create(IMovieService.class);
-        Call<Movie> call = (Call<Movie>) iMovieService.getPopularMovies(API_KEY, page);
-        call.enqueue(new Callback<Movie>() {
-            @Override
-            public void onResponse(Call<Movie> call, Response<Movie> response) {
-                Log.d("Response", "Exito");
-            }
+    public void loadPopularMovies(Integer page) {
 
-            @Override
-            public void onFailure(Call<Movie> call, Throwable t) {
-                Log.d("Response", "Error");
-            }
-        });
+        MovieService movieService = new MovieService();
+        iMovieService = movieService.getMovieApi().create(IMovieService.class);
+
+        iMovieService.getPopularMovies(API_KEY, page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<MovieData>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        iPopularView.showMessage("onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(MovieData value) {
+                        iPopularView.showMessage("onNext");
+                        iPopularView.startAdapter(value);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        iPopularView.showMessage("onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        iPopularView.showMessage("onComplete");
+                    }
+                });
     }
 }

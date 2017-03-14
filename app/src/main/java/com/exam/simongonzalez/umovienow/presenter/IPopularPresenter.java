@@ -6,6 +6,6 @@ package com.exam.simongonzalez.umovienow.presenter;
 
 public interface IPopularPresenter {
 
-    public void loadPopularMovies(String page);
+    void loadPopularMovies(Integer page);
 
 }

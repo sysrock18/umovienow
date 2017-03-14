@@ -1,11 +1,8 @@
 package com.exam.simongonzalez.umovienow.service;
 
-import com.exam.simongonzalez.umovienow.model.Movie;
-
-import java.util.List;
+import com.exam.simongonzalez.umovienow.model.MovieData;
 
 import io.reactivex.Observable;
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -15,25 +12,25 @@ import retrofit2.http.Query;
 
 public interface IMovieService {
 
-    @GET("popular")
-    Observable<List<Movie>> getPopularMovies(
+    @GET("movie/popular")
+    Observable<MovieData> getPopularMovies(
             @Query("api_key") String apiKey,
-            @Query("page") String page);
+            @Query("page") Integer page);
 
-    @GET("top_rated")
-    Observable<List<Movie>> getTopRatedMovies(
+    @GET("movie/top_rated")
+    Observable<MovieData> getTopRatedMovies(
             @Query("api_key") String apiKey,
-            @Query("page") String page);
+            @Query("page") Integer page);
 
-    @GET("upcoming")
-    Observable<List<Movie>> getUpcomingMovies(
+    @GET("movie/upcoming")
+    Observable<MovieData> getUpcomingMovies(
             @Query("api_key") String apiKey,
-            @Query("page") String page);
+            @Query("page") Integer page);
 
     @GET("search/movie")
-    Observable<List<Movie>> getSearchedMovies(
+    Observable<MovieData> getSearchedMovies(
             @Query("api_key") String apiKey,
             @Query("query") String query,
-            @Query("page") String page);
+            @Query("page") Integer page);
 
 }
