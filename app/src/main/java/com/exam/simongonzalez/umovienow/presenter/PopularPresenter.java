@@ -29,7 +29,7 @@ public class PopularPresenter implements IPopularPresenter {
     }
 
     @Override
-    public void loadPopularMovies(Integer page) {
+    public void loadPopularMovies(final Integer page) {
 
         MovieService movieService = new MovieService();
         iMovieService = movieService.getMovieApi().create(IMovieService.class);
@@ -40,13 +40,16 @@ public class PopularPresenter implements IPopularPresenter {
                 .subscribe(new Observer<MovieData>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        iPopularView.showMessage("onSubscribe");
                     }
 
                     @Override
                     public void onNext(MovieData value) {
                         iPopularView.showMessage("onNext");
-                        iPopularView.startAdapter(value);
+                        if(page > 1) {
+                            iPopularView.setNextData(value);
+                        } else {
+                            iPopularView.startAdapter(value);
+                        }
                     }
 
                     @Override

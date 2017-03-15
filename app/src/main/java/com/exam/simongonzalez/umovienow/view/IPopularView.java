@@ -12,4 +12,6 @@ public interface IPopularView {
 
     void startAdapter(MovieData movieData);
 
+    void setNextData(MovieData movieData);
+
 }

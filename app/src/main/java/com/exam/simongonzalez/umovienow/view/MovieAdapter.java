@@ -43,6 +43,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return moviesResults.size();
     }
 
+    public void setList(ArrayList<Result> moviesResults) {
+        this.moviesResults.addAll(moviesResults);
+        notifyDataSetChanged();
+    }
+
+    public void updateList(ArrayList<Result> moviesResults) {
+        this.moviesResults.addAll(moviesResults);
+        notifyDataSetChanged();
+    }
+
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvTitle;
