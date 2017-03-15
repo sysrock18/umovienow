@@ -5,4 +5,7 @@ package com.exam.simongonzalez.umovienow.presenter;
  */
 
 public interface ITopRatedPresenter {
+
+    void loadTopRatedMovies(Integer page);
+
 }

@@ -5,4 +5,7 @@ package com.exam.simongonzalez.umovienow.presenter;
  */
 
 public interface IUpcomingPresenter {
+
+    void loadUpcomingMovies(Integer page);
+
 }

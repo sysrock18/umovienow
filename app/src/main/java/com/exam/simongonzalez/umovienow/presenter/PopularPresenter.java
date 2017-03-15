@@ -40,11 +40,11 @@ public class PopularPresenter implements IPopularPresenter {
                 .subscribe(new Observer<MovieData>() {
                     @Override
                     public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override
                     public void onNext(MovieData value) {
-                        iPopularView.showMessage("onNext");
                         if(page > 1) {
                             iPopularView.setNextData(value);
                         } else {
@@ -54,12 +54,12 @@ public class PopularPresenter implements IPopularPresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        iPopularView.showMessage("onError");
+                        e.printStackTrace();
                     }
 
                     @Override
                     public void onComplete() {
-                        iPopularView.showMessage("onComplete");
+
                     }
                 });
     }

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/vertical_margin_cardview"
     card_view:cardCornerRadius="@dimen/corner_radius_cardview"
+    android:id="@+id/cdMovie"
     >
 
     <TextView

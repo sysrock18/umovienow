@@ -2,6 +2,7 @@ package com.exam.simongonzalez.umovienow.view;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -47,6 +48,7 @@ public class PopularView extends Fragment implements IPopularView {
 
         // Inflate the layout for this fragment
         moviesList = (RecyclerView) v.findViewById(R.id.rvPopular);
+        page = 1;
 
         final LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
