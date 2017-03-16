@@ -11,7 +11,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 public class MovieService {
 
     private static String BASE_URL = "https://api.themoviedb.org/3/";
-    private static String API_KEY = "367ef3f968fd589d24409b9240735c38";
 
     public MovieService() {
 

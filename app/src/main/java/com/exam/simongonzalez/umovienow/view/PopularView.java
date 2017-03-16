@@ -28,8 +28,6 @@ public class PopularView extends Fragment implements IPopularView {
 
     private IPopularPresenter iPopularPresenter;
     private RecyclerView moviesList;
-    private boolean loading = true;
-    int pastVisiblesItems, visibleItemCount, totalItemCount;
     int page = 1;
     ArrayList<Result> results = new ArrayList<Result>();
 
@@ -46,42 +44,17 @@ public class PopularView extends Fragment implements IPopularView {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_popular_view, container, false);
 
-        // Inflate the layout for this fragment
         moviesList = (RecyclerView) v.findViewById(R.id.rvPopular);
+        moviesList.setHasFixedSize(true);
         page = 1;
 
         final LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
+        moviesList.setLayoutManager(llm);
+
         iPopularPresenter = new PopularPresenter(this, getContext());
         iPopularPresenter.loadPopularMovies(page);
-
-        moviesList.addOnScrollListener(new RecyclerView.OnScrollListener()
-        {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy)
-            {
-                loading = true;
-                if(dy > 0)
-                {
-                    visibleItemCount = llm.getChildCount();
-                    totalItemCount = llm.getItemCount();
-                    pastVisiblesItems = llm.findFirstVisibleItemPosition();
-
-                    if (loading)
-                    {
-                        if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
-                        {
-                            loading = false;
-                            page++;
-                            iPopularPresenter.loadPopularMovies(page);
-                        }
-                    }
-                }
-            }
-        });
-
-        moviesList.setLayoutManager(llm);
 
         return v;
     }
@@ -89,12 +62,31 @@ public class PopularView extends Fragment implements IPopularView {
     @Override
     public void startAdapter(MovieData movieData) {
         results = (ArrayList<Result>) movieData.getResults();
-        movieAdapter = new MovieAdapter(results, getActivity());
+        movieAdapter = new MovieAdapter(results, getActivity(), moviesList);
+
+        movieAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                movieAdapter.addLoader();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        page++;
+                        iPopularPresenter.loadPopularMovies(page);
+                    }
+                }, 1000);
+
+            }
+        });
+
         moviesList.setAdapter(movieAdapter);
     }
 
     @Override
     public void setNextData(MovieData movieData) {
+        movieAdapter.setLoaded();
+        movieAdapter.removeLoader();
         results = (ArrayList<Result>) movieData.getResults();
         movieAdapter.updateList(results);
     }

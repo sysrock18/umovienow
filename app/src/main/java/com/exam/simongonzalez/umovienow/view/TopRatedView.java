@@ -2,6 +2,7 @@ package com.exam.simongonzalez.umovienow.view;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,8 +24,6 @@ public class TopRatedView extends Fragment implements ITopRatedView {
 
     private ITopRatedPresenter iTopRatedPresenter;
     private RecyclerView moviesList;
-    private boolean loading = true;
-    int pastVisiblesItems, visibleItemCount, totalItemCount;
     int page = 1;
     ArrayList<Result> results = new ArrayList<Result>();
 
@@ -48,35 +47,10 @@ public class TopRatedView extends Fragment implements ITopRatedView {
         final LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
+        moviesList.setLayoutManager(llm);
+
         iTopRatedPresenter = new TopRatedPresenter(this, getContext());
         iTopRatedPresenter.loadTopRatedMovies(page);
-
-        moviesList.addOnScrollListener(new RecyclerView.OnScrollListener()
-        {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy)
-            {
-                loading = true;
-                if(dy > 0)
-                {
-                    visibleItemCount = llm.getChildCount();
-                    totalItemCount = llm.getItemCount();
-                    pastVisiblesItems = llm.findFirstVisibleItemPosition();
-
-                    if (loading)
-                    {
-                        if ( (visibleItemCount + pastVisiblesItems) >= totalItemCount)
-                        {
-                            loading = false;
-                            page++;
-                            iTopRatedPresenter.loadTopRatedMovies(page);
-                        }
-                    }
-                }
-            }
-        });
-
-        moviesList.setLayoutManager(llm);
 
         return v;
     }
@@ -84,12 +58,31 @@ public class TopRatedView extends Fragment implements ITopRatedView {
     @Override
     public void startAdapter(MovieData movieData) {
         results = (ArrayList<Result>) movieData.getResults();
-        movieAdapter = new MovieAdapter(results, getActivity());
+        movieAdapter = new MovieAdapter(results, getActivity(), moviesList);
+
+        movieAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                movieAdapter.addLoader();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        page++;
+                        iTopRatedPresenter.loadTopRatedMovies(page);
+                    }
+                }, 1000);
+
+            }
+        });
+
         moviesList.setAdapter(movieAdapter);
     }
 
     @Override
     public void setNextData(MovieData movieData) {
+        movieAdapter.setLoaded();
+        movieAdapter.removeLoader();
         results = (ArrayList<Result>) movieData.getResults();
         movieAdapter.updateList(results);
     }
