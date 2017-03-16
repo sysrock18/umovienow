@@ -17,6 +17,8 @@ import com.exam.simongonzalez.umovienow.R;
 import com.exam.simongonzalez.umovienow.model.Result;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -92,6 +94,7 @@ public class MovieAdapter extends RecyclerView.Adapter {
             final Result result= (Result) moviesResults.get(position);
 
             ((MovieViewHolder) holder).tvTitle.setText(result.getTitle());
+            ((MovieViewHolder) holder).tvVote.setText(String.valueOf(result.getVoteAverage()));
 
             Picasso.with(activity).load("https://image.tmdb.org/t/p/w500/" + result.getPosterPath()).into(((MovieViewHolder) holder).imgPosterMovie);
 
@@ -99,8 +102,11 @@ public class MovieAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(activity, MovieDetailActivity.class);
-                    myIntent.putExtra("movieId", result.getId());
                     myIntent.putExtra("movieTitle", result.getTitle());
+                    myIntent.putExtra("moviePoster", result.getPosterPath());
+                    myIntent.putExtra("movieOverview", result.getOverview());
+                    myIntent.putExtra("movieReleaseDate", result.getReleaseDate());
+                    myIntent.putExtra("moviePopularity", result.getVoteAverage());
                     activity.startActivity(myIntent);
                 }
             });
@@ -148,12 +154,14 @@ public class MovieAdapter extends RecyclerView.Adapter {
         private TextView tvTitle;
         private CardView cdMovie;
         private ImageView imgPosterMovie;
+        private TextView tvVote;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             cdMovie = (CardView) itemView.findViewById(R.id.cdMovie);
             imgPosterMovie = (ImageView) itemView.findViewById(R.id.imgPosterMovie);
+            tvVote = (TextView) itemView.findViewById(R.id.tvVote);
         }
     }
 
