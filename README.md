@@ -3,6 +3,8 @@ Repositorio entregable para aplicar a oportunidad en Grability
 
 ## **Inicio** ##
 
+![Scheme](screenshots/popular.png)
+
 ![alt tag](https://bytebucket.org/rocksgz/umovienow/raw/4304cbd34bc00324cfd3d90c6490bea7f4bef382/screenshots/popular.png?token=f121650ea5799c651431a0fc74204135cae0cc76)
 
 ## **Peliculas mas votadas** ##
