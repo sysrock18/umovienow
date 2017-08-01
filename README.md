@@ -1,5 +1,5 @@
 # **UMovieNow** #
-Repositorio entregable para aplicar a oportunidad en Grability
+Aplicación Android realizada bajo la arquitectura MVP (Modelo-Vista-Presentador)
 
 ## **Inicio** ##
 
